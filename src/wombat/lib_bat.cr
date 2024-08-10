@@ -44,6 +44,7 @@ module Wombat
     end
 
     fun bat_pretty_print(input : Pointer(UInt8), length : LibC::SizeT, input_type : BatInputType, language : Pointer(UInt8), theme : Pointer(UInt8), options : BatPrintOptions) : Nil
+    fun bat_pretty_print_to_string(input : Pointer(UInt8), length : LibC::SizeT, input_type : BatInputType, language : Pointer(UInt8), theme : Pointer(UInt8), options : BatPrintOptions, output_length : Pointer(LibC::SizeT)) : Pointer(UInt8)
     fun bat_c_version : Pointer(UInt8)
   end
 end
