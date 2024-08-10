@@ -1,9 +1,14 @@
-name: bat
+name: wombat
 version: 0.1.0
 
 authors:
   - kojix2 <2xijok@gmail.com>
 
-crystal: '>= 1.13.1'
+scripts:
+  postinstall: crystal run scripts/download_static_libraries.cr
+
+dependencies:
+  crest:
+    github: mamantoha/crest
 
 license: MIT

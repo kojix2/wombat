@@ -1,6 +1,4 @@
-# bat
-
-TODO: Write a description here
+# wombat
 
 ## Installation
 
@@ -9,7 +7,7 @@ TODO: Write a description here
    ```yaml
    dependencies:
      bat:
-       github: your-github-user/bat
+       github: kojix2/wombat
    ```
 
 2. Run `shards install`
@@ -17,14 +15,12 @@ TODO: Write a description here
 ## Usage
 
 ```crystal
-require "bat"
+require "wombat"
 ```
-
-TODO: Write usage instructions here
 
 ## Development
 
-TODO: Write development instructions here
+Maintainability is important. 
 
 ## Contributing
 
@@ -33,7 +29,3 @@ TODO: Write development instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
-
-## Contributors
-
-- [kojix2](https://github.com/your-github-user) - creator and maintainer

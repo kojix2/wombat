@@ -1,2 +1,2 @@
 require "spec"
-require "../src/bat"
+require "../src/wombat"

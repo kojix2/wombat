@@ -1,0 +1,1 @@
+This is a directory for external libraries that are not part of the project.
