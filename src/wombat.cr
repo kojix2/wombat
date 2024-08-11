@@ -96,6 +96,10 @@ module Wombat
       ),
       len_ptr
     )
-    String.new(str_ptr, len_ptr.value)
+    # Crystal copy the string from the pointer
+    str = String.new(str_ptr, len_ptr.value)
+    # So we can free the string allocated in Rust
+    Wombat::Bat.bat_free_string(str_ptr)
+    str
   end
 end
