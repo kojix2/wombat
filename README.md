@@ -29,7 +29,7 @@ If you want to run the example, you need to download the static library first.
 ```
 git clone https://github.com/kojix2/wombat
 shards install
-crystal run scripts/download_static_library.cr
+crystal run scripts/download_bat_c_static_library.cr
 ```
 
 ```crystal

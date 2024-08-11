@@ -5,7 +5,7 @@ authors:
   - kojix2 <2xijok@gmail.com>
 
 scripts:
-  postinstall: crystal run scripts/download_static_libraries.cr
+  postinstall: crystal run scripts/download_bat_c_static_library.cr
 
 dependencies:
   crest:

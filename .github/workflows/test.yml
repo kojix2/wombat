@@ -21,7 +21,9 @@ jobs:
         with:
           crystal: latest
       - name: Install dependencies
-        run: shards install
+        run: |
+          shards install
+          crystal run scripts/download_bat_c_static_library.cr
       - name: Run tests
         run: crystal spec
       - name: Build example
