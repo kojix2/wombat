@@ -12,7 +12,7 @@ module Wombat
                         rule : Bool = true, show_nonprintable : Bool = false, snip : Bool = true,
                         wrapping_mode : Int = 1, use_italics : Bool = true, paging_mode : Int = 1,
                         highlight_line : Int = 1)
-    Wombat::Bat.bat_pretty_print(
+    result = Wombat::Bat.bat_pretty_print(
       path.to_s,
       path.to_s.size,
       Wombat::Bat::BatInputType::BatFile,
@@ -34,6 +34,9 @@ module Wombat
         highlight_line: highlight_line
       )
     )
+    if result != 0
+      raise "[wombat] Error: failed to pretty print file : #{path}"
+    end
   end
 
   def self.pretty_print(input : String, language : String? = nil, theme : String? = nil,
@@ -42,7 +45,7 @@ module Wombat
                         rule : Bool = true, show_nonprintable : Bool = false, snip : Bool = true,
                         wrapping_mode : Int = 1, use_italics : Bool = true, paging_mode : Int = 1,
                         highlight_line : Int = 1)
-    Wombat::Bat.bat_pretty_print(
+    result = Wombat::Bat.bat_pretty_print(
       input,
       input.size,
       Wombat::Bat::BatInputType::BatBytes,
@@ -64,6 +67,9 @@ module Wombat
         highlight_line: highlight_line
       )
     )
+    if result != 0
+      raise "[wombat] Error: failed to pretty print input"
+    end
   end
 
   def self.pretty_string(input : String, language : String? = nil, theme : String? = nil,
@@ -73,7 +79,8 @@ module Wombat
                          wrapping_mode : Int = 1, use_italics : Bool = true, paging_mode : Int = 2,
                          highlight_line : Int = -1) : String
     len_ptr = Pointer(LibC::SizeT).malloc
-    str_ptr = Wombat::Bat.bat_pretty_print_to_string(
+    output_ptr = Pointer(Pointer(UInt8)).malloc
+    result = Wombat::Bat.bat_pretty_print_to_string(
       input,
       input.size,
       Wombat::Bat::BatInputType::BatBytes,
@@ -94,12 +101,18 @@ module Wombat
         paging_mode: paging_mode,
         highlight_line: highlight_line
       ),
+      output_ptr,
       len_ptr
     )
+    if result != 0
+      raise "[wombat] Error: failed to pretty print input"
+    end
+
     # Crystal copy the string from the pointer
-    str = String.new(str_ptr, len_ptr.value)
+    str = String.new(output_ptr.value, len_ptr.value)
+
     # So we can free the string allocated in Rust
-    Wombat::Bat.bat_free_string(str_ptr)
+    Wombat::Bat.bat_free_string(output_ptr.value)
     str
   end
 end
