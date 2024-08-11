@@ -71,7 +71,7 @@ module Wombat
                          header : Bool = true, line_numbers : Bool = true, grid : Bool = true,
                          rule : Bool = true, show_nonprintable : Bool = false, snip : Bool = true,
                          wrapping_mode : Int = 1, use_italics : Bool = true, paging_mode : Int = 2,
-                         highlight_line : Int = 1) : String
+                         highlight_line : Int = -1) : String
     len_ptr = Pointer(LibC::SizeT).malloc
     str_ptr = Wombat::Bat.bat_pretty_print_to_string(
       input,

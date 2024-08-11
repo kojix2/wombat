@@ -16,6 +16,8 @@
 
 ```crystal
 require "wombat"
+
+puts Wombat.pretty_string(%{puts "hello world"})
 ```
 
 ## Development
