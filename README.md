@@ -3,7 +3,7 @@
 Wombat is a Crystal binding for [bat](https://github.com/sharkdp/bat) syntax highlighting library.
 
 - [bat](https://github.com/sharkdp/bat) - A cat(1) clone with wings.
-- [bat_c](https://github.com/kojix2/bat_c) - A C wrapper for bat.
+- [bat-c](https://github.com/kojix2/bat-c) - A C wrapper for bat.
 
 ## Installation
 
