@@ -55,6 +55,4 @@ end
     ["bat_c.lib"],
     "bat_c_windows.zip"
   )
-  require "file_utils"
-  FileUtils.mv("libui.a", "libui.lib")
 {% end %}
