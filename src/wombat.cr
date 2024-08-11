@@ -2,6 +2,8 @@ require "./wombat/version"
 require "./wombat/lib_bat"
 
 module Wombat
+  class Error < Exception; end
+
   # Returns the version of the bat_c
   def self.bat_c_version : String
     String.new(Wombat::Bat.bat_c_version)
@@ -48,7 +50,7 @@ module Wombat
       )
     )
     if result != 0
-      raise "[wombat] Error: failed to pretty print file : #{path}"
+      raise Error.new("Failed to pretty print file : #{path}")
     end
   end
 
@@ -94,7 +96,7 @@ module Wombat
       )
     )
     if result != 0
-      raise "[wombat] Error: failed to pretty print input"
+      raise Error.new("Failed to pretty print input")
     end
   end
 
@@ -144,7 +146,7 @@ module Wombat
       len_ptr
     )
     if result != 0
-      raise "[wombat] Error: failed to pretty print input"
+      raise Error.new("Failed to highlight input")
     end
 
     # Crystal copy the string from the pointer
