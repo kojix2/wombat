@@ -4,7 +4,7 @@ require "crest"
 DEST_DIR = Path["#{__DIR__}/../src/ext"]
 
 def url_for_libui_ng_nightly(file_name)
-  "https://github.com/kojix2/bat-c/releases/latest/download//#{file_name}"
+  "https://github.com/kojix2/bat-c/releases/latest/download/#{file_name}"
 end
 
 def download_libui_ng_nightly(lib_path, file_name)
