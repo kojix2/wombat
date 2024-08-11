@@ -17,7 +17,7 @@ module Wombat
     tab_width : Int = 4,
     colored_output : Bool = true,
     true_color : Bool = true,
-    header : Bool = true,
+    header : Bool = false,
     line_numbers : Bool = true,
     grid : Bool = true,
     rule : Bool = true,
