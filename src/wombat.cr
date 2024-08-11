@@ -26,7 +26,7 @@ module Wombat
     wrapping_mode : Int = 1,
     use_italics : Bool = true,
     paging_mode : Int = 1,
-    highlight_line : Int = 1
+    highlight_line : Int = -1
   ) : Nil
     result = Wombat::Bat.bat_pretty_print(
       input,
@@ -72,7 +72,7 @@ module Wombat
     wrapping_mode : Int = 1,
     use_italics : Bool = true,
     paging_mode : Int = 1,
-    highlight_line : Int = 1
+    highlight_line : Int = -1
   ) : Nil
     result = Wombat::Bat.bat_pretty_print(
       path.to_s,
