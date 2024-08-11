@@ -1,5 +1,10 @@
 # wombat
 
+Wombat is a Crystal binding for [bat](https://github.com/sharkdp/bat) syntax highlighting library.
+
+- [bat](https://github.com/sharkdp/bat) - A cat(1) clone with wings.
+- [bat_c](https://github.com/kojix2/bat_c) - A C wrapper for bat.
+
 ## Installation
 
 1. Add the dependency to your `shard.yml`:
@@ -11,12 +16,19 @@
    ```
 
 2. Run `shards install`
+3. Postinstall script will download the static library to `src/ext' directory.
 
 ## Usage
 
-Download bat_c
+- [API Documentation](https://kojix2.github.io/wombat/)
+
+### Example
+
+If you want to run the example, you need to download the static library first.
 
 ```
+git clone https://github.com/kojix2/wombat
+shards install
 crystal run scripts/download_static_library.cr
 ```
 
@@ -28,12 +40,8 @@ puts Wombat.pretty_string(%{puts "hello world"})
 
 ## Development
 
-Maintainability is important. 
+- Sustainable development is important.
 
 ## Contributing
 
-1. Fork it (<https://github.com/your-github-user/bat/fork>)
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+- Your contributions are always welcome!
