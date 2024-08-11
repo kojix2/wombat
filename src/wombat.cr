@@ -2,7 +2,7 @@ require "./wombat/version"
 require "./wombat/lib_bat"
 
 module Wombat
-  def self.bat_c_version
+  def self.bat_c_version : String
     String.new(Wombat::Bat.bat_c_version)
   end
 
@@ -68,7 +68,7 @@ module Wombat
 
   def self.pretty_string(input : String, language : String? = nil, theme : String? = nil,
                          tab_width : Int = 4, colored_output : Bool = true, true_color : Bool = true,
-                         header : Bool = true, line_numbers : Bool = true, grid : Bool = true,
+                         header : Bool = false, line_numbers : Bool = true, grid : Bool = true,
                          rule : Bool = true, show_nonprintable : Bool = false, snip : Bool = true,
                          wrapping_mode : Int = 1, use_italics : Bool = true, paging_mode : Int = 2,
                          highlight_line : Int = -1) : String
