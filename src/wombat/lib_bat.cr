@@ -24,9 +24,9 @@ module Wombat
     @[Link("Shlwapi")]
     @[Link("Userenv")]
     @[Link("ucrt")]
-    @[Link("libucrt")]
+    # @[Link("libucrt")]
     @[Link("#{__DIR__}/../ext/bat_c")]
-    @[Link(ldflags: "/NODEFAULTLIB:MSVCRT /NODEFAULTLIB:libucrt.lib")]
+    @[Link(ldflags: "/NODEFAULTLIB:MSVCRT")] # /NODEFAULTLIB:libucrt.lib
   {% end %}
   lib Bat
     # BatInputType enum to specify the type of input
