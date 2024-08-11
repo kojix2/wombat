@@ -1,8 +1,16 @@
 module Wombat
   {% if flag?(:linux) %}
-    @[Link(ldflags: "#{__DIR__}/../ext/libbat_c.a -lz -lm")]
+    {% if env("SHARED") %}
+      @[Link("bat_c")]
+    {% else %}
+      @[Link(ldflags: "#{__DIR__}/../ext/libbat_c.a -lz -lm")]
+    {% end %}
   {% elsif flag?(:darwin) %}
-    @[Link(ldflags: "#{__DIR__}/../ext/libbat_c.a -lz -lm")]
+    {% if env("SHARED") %}
+      @[Link("bat_c")]
+    {% else %}
+      @[Link(ldflags: "#{__DIR__}/../ext/libbat_c.a -lz -lm")]
+    {% end %}
   {% elsif flag?(:windows) %}
     @[Link("Kernel32")]
     @[Link("Advapi32")]

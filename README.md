@@ -14,6 +14,12 @@
 
 ## Usage
 
+Download bat_c
+
+```
+crystal run scripts/download_static_library.cr
+```
+
 ```crystal
 require "wombat"
 
