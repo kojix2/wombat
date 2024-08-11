@@ -2,16 +2,29 @@ require "./wombat/version"
 require "./wombat/lib_bat"
 
 module Wombat
+  # Returns the version of the bat_c
   def self.bat_c_version : String
     String.new(Wombat::Bat.bat_c_version)
   end
 
-  def self.pretty_print(path : (String | Path), language : String? = nil, theme : String? = nil,
-                        tab_width : Int = 4, colored_output : Bool = true, true_color : Bool = true,
-                        header : Bool = true, line_numbers : Bool = true, grid : Bool = true,
-                        rule : Bool = true, show_nonprintable : Bool = false, snip : Bool = true,
-                        wrapping_mode : Int = 1, use_italics : Bool = true, paging_mode : Int = 1,
-                        highlight_line : Int = 1)
+  def self.pretty_print(
+    path : (Path | String),
+    language : String? = nil,
+    theme : String? = nil,
+    tab_width : Int = 4,
+    colored_output : Bool = true,
+    true_color : Bool = true,
+    header : Bool = true,
+    line_numbers : Bool = true,
+    grid : Bool = true,
+    rule : Bool = true,
+    show_nonprintable : Bool = false,
+    snip : Bool = true,
+    wrapping_mode : Int = 1,
+    use_italics : Bool = true,
+    paging_mode : Int = 1,
+    highlight_line : Int = 1
+  ) : Nil
     result = Wombat::Bat.bat_pretty_print(
       path.to_s,
       path.to_s.size,
@@ -39,12 +52,25 @@ module Wombat
     end
   end
 
-  def self.pretty_print(input : String, language : String? = nil, theme : String? = nil,
-                        tab_width : Int = 4, colored_output : Bool = true, true_color : Bool = true,
-                        header : Bool = true, line_numbers : Bool = true, grid : Bool = true,
-                        rule : Bool = true, show_nonprintable : Bool = false, snip : Bool = true,
-                        wrapping_mode : Int = 1, use_italics : Bool = true, paging_mode : Int = 1,
-                        highlight_line : Int = 1)
+  # Pretty print the input string
+  def self.pretty_print(
+    input : String,
+    language : String? = nil,
+    theme : String? = nil,
+    tab_width : Int = 4,
+    colored_output : Bool = true,
+    true_color : Bool = true,
+    header : Bool = true,
+    line_numbers : Bool = true,
+    grid : Bool = true,
+    rule : Bool = true,
+    show_nonprintable : Bool = false,
+    snip : Bool = true,
+    wrapping_mode : Int = 1,
+    use_italics : Bool = true,
+    paging_mode : Int = 1,
+    highlight_line : Int = 1
+  ) : Nil
     result = Wombat::Bat.bat_pretty_print(
       input,
       input.size,
@@ -72,12 +98,25 @@ module Wombat
     end
   end
 
-  def self.pretty_string(input : String, language : String? = nil, theme : String? = nil,
-                         tab_width : Int = 4, colored_output : Bool = true, true_color : Bool = true,
-                         header : Bool = false, line_numbers : Bool = true, grid : Bool = true,
-                         rule : Bool = true, show_nonprintable : Bool = false, snip : Bool = true,
-                         wrapping_mode : Int = 1, use_italics : Bool = true, paging_mode : Int = 2,
-                         highlight_line : Int = -1) : String
+  # Get the highlighted string of the input
+  def self.pretty_string(
+    input : String,
+    language : String? = nil,
+    theme : String? = nil,
+    tab_width : Int = 4,
+    colored_output : Bool = true,
+    true_color : Bool = true,
+    header : Bool = false,
+    line_numbers : Bool = true,
+    grid : Bool = true,
+    rule : Bool = true,
+    show_nonprintable : Bool = false,
+    snip : Bool = true,
+    wrapping_mode : Int = 1,
+    use_italics : Bool = true,
+    paging_mode : Int = 2,
+    highlight_line : Int = -1
+  ) : String
     len_ptr = Pointer(LibC::SizeT).malloc
     output_ptr = Pointer(Pointer(UInt8)).malloc
     result = Wombat::Bat.bat_pretty_print_to_string(
