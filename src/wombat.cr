@@ -56,7 +56,7 @@ module Wombat
   end
 
   # Pretty print the input file
-  def self.pretty_print(
+  def self.pretty_print_file(
     path : (Path | String),
     language : String? = nil,
     theme : String? = nil,

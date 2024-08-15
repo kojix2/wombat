@@ -1,7 +1,7 @@
 require "../src/wombat"
 
 # Output the file content with syntax highlighting by calling the rust function
-Wombat.pretty_print(path: Path[__FILE__])
+Wombat.pretty_print_file(__FILE__)
 
 # Output the highlighted string of the input by calling the rust function
 Wombat.pretty_print(input: %{fn main() { println!("Hello, world!"); }}, language: "Rust")
