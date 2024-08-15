@@ -1,47 +1,59 @@
-# wombat
+# Wombat
 
-Wombat is a Crystal binding for [bat](https://github.com/sharkdp/bat) syntax highlighting library.
+Wombat is a Crystal binding for the well-known [bat](https://github.com/sharkdp/bat) syntax highlighting library. `bat` is a `cat(1)` clone with wings, popular among developers for its syntax highlighting capabilities. With Wombat, you can utilize `bat`'s syntax highlighting functionality directly within your Crystal applications.
 
-- [bat](https://github.com/sharkdp/bat) - A cat(1) clone with wings.
-- [bat-c](https://github.com/kojix2/bat-c) - A C wrapper for bat.
+## About `bat`
+
+- [bat](https://github.com/sharkdp/bat): A well-known `cat(1)` clone with syntax highlighting capabilities.
+- [bat-c](https://github.com/kojix2/bat-c): A C wrapper for the `bat` library.
 
 ## Installation
 
-1. Add the dependency to your `shard.yml`:
+1. **Add the dependency to your `shard.yml`:**
 
-   ```yaml
-   dependencies:
-     bat:
-       github: kojix2/wombat
-   ```
+    ```yaml
+    dependencies:
+      wombat:
+        github: kojix2/wombat
+    ```
 
-2. Run `shards install`
-3. Postinstall script will download the static library to `src/ext' directory.
+2. **Install the dependencies:**
+
+    ```sh
+    shards install
+    ```
+
+During installation, a `postinstall` script will automatically download the static library for `bat-c` into the `src/ext` directory.
 
 ## Usage
 
-- [API Documentation](https://kojix2.github.io/wombat/)
+### Obtain a Syntax Highlighted String
 
-### Example
-
-If you want to run the example, you need to download the static library first.
-
-```
-git clone https://github.com/kojix2/wombat
-shards install
-crystal run scripts/download_bat_c_static_library.cr
-```
+Retrieve and output a syntax highlighted string:
 
 ```crystal
 require "wombat"
 
-puts Wombat.pretty_string(%{puts "hello world"})
+highlighted = Wombat.pretty_string(%{puts "hello world"})
+puts highlighted
 ```
+
+### Output a Syntax Highlighted File
+
+Output the contents of a file with syntax highlighting. `bat` will automatically invoke `less`:
+
+```crystal
+require "wombat"
+
+Wombat.pretty_print_file("/path/to/your_file.cr")
+```
+
+For more details, refer to the [API Documentation](https://kojix2.github.io/wombat/).
 
 ## Development
 
-- Sustainable development is important.
+Sustainable development is important. If you encounter any issues or have suggestions for improvement, please contribute!
 
 ## Contributing
 
-- Your contributions are always welcome!
+Your contributions are always welcome! Feel free to raise issues, submit pull requests, or suggest new features.
