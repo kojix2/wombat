@@ -82,11 +82,16 @@
 <h1><a id="wombat" class="anchor" href="#wombat">  <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
-</a>wombat</h1>
-<p>Wombat is a Crystal binding for <a href="https://github.com/sharkdp/bat">bat</a> syntax highlighting library.</p>
+</a>Wombat</h1>
+<p>Wombat is a Crystal binding for the well-known <a href="https://github.com/sharkdp/bat">bat</a> syntax highlighting library. <code>bat</code> is a <code>cat(1)</code> clone with wings, popular among developers for its syntax highlighting capabilities. With Wombat, you can utilize <code>bat</code>'s syntax highlighting functionality directly within your Crystal applications.</p>
+<h2><a id="about-bat" class="anchor" href="#about-bat">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>About <code>bat</code></h2>
 <ul>
-<li><a href="https://github.com/sharkdp/bat">bat</a> - A cat(1) clone with wings.</li>
-<li><a href="https://github.com/kojix2/bat-c">bat-c</a> - A C wrapper for bat.</li>
+<li><a href="https://github.com/sharkdp/bat">bat</a>: A well-known <code>cat(1)</code> clone with syntax highlighting capabilities.</li>
+<li><a href="https://github.com/kojix2/bat-c">bat-c</a>: A C wrapper for the <code>bat</code> library.</li>
 </ul>
 <h2><a id="installation" class="anchor" href="#installation">
   <svg class="octicon-link" aria-hidden="true">
@@ -95,54 +100,65 @@
 </a>Installation</h2>
 <ol>
 <li>
-<p>Add the dependency to your <code>shard.yml</code>:</p>
+<p><strong>Add the dependency to your <code>shard.yml</code>:</strong></p>
 <pre><code class="language-yaml">dependencies:
-  bat:
+  wombat:
     github: kojix2/wombat</code></pre>
 </li>
 <li>
-<p>Run <code>shards install</code></p>
-</li>
-<li>
-<p>Postinstall script will download the static library to `src/ext' directory.</p>
+<p><strong>Install the dependencies:</strong></p>
+<pre><code class="language-sh">shards install</code></pre>
 </li>
 </ol>
+<p>During installation, a <code>postinstall</code> script will automatically download the static library for <code>bat-c</code> into the <code>src/ext</code> directory.</p>
+<h2><a id="features" class="anchor" href="#features">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Features</h2>
+<p>Wombat provides the following two main features:</p>
+<ol>
+<li><strong>Convert strings to highlighted strings</strong></li>
+<li><strong>Output syntax highlighted files</strong></li>
+</ol>
+<p>Both features use Rust's <code>bat</code> functions, ensuring that the output is identical to <code>bat</code>. Additionally, when outputting files, <code>bat</code> will automatically invoke <code>less</code>.</p>
 <h2><a id="usage" class="anchor" href="#usage">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>Usage</h2>
-<ul>
-<li><a href="https://kojix2.github.io/wombat/">API Documentation</a></li>
-</ul>
-<h3><a id="example" class="anchor" href="#example">
+<h3><a id="obtain-a-syntax-highlighted-string" class="anchor" href="#obtain-a-syntax-highlighted-string">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
-</a>Example</h3>
-<p>If you want to run the example, you need to download the static library first.</p>
-<pre><code class="language-crystal">git clone https<span class="n">://</span>github.com<span class="o">/</span>kojix2<span class="o">/</span>wombat
-shards install
-crystal run scripts<span class="o">/</span>download_bat_c_static_library.cr</code></pre>
+</a>Obtain a Syntax Highlighted String</h3>
+<p>Retrieve and output a syntax highlighted string:</p>
 <pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;wombat&quot;</span>
 
-puts <span class="t">Wombat</span>.pretty_string(<span class="s">%{puts &quot;hello world&quot;}</span>)</code></pre>
+highlighted <span class="o">=</span> <span class="t">Wombat</span>.pretty_string(<span class="s">%{puts &quot;hello world&quot;}</span>)
+puts highlighted</code></pre>
+<h3><a id="output-a-syntax-highlighted-file" class="anchor" href="#output-a-syntax-highlighted-file">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Output a Syntax Highlighted File</h3>
+<p>Output the contents of a file with syntax highlighting. <code>bat</code> will automatically invoke <code>less</code>:</p>
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;wombat&quot;</span>
+
+<span class="t">Wombat</span>.pretty_print_file(<span class="s">&quot;/path/to/your_file.cr&quot;</span>)</code></pre>
+<p>For more details, refer to the <a href="https://kojix2.github.io/wombat/">API Documentation</a>.</p>
 <h2><a id="development" class="anchor" href="#development">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>Development</h2>
-<ul>
-<li>Sustainable development is important.</li>
-</ul>
+<p>Sustainable development is important. If you encounter any issues or have suggestions for improvement, please contribute!</p>
 <h2><a id="contributing" class="anchor" href="#contributing">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>Contributing</h2>
-<ul>
-<li>Your contributions are always welcome!</li>
-</ul>
+<p>Your contributions are always welcome! Feel free to raise issues, submit pull requests, or suggest new features.</p>
 </div>
 </body>
 </html>
