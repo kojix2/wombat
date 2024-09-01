@@ -16,6 +16,8 @@ jobs:
         run: shards install
       - name: Generate document
         run: crystal docs
+      - name: Copy logos
+        run: cp -r logo docs
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
