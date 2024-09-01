@@ -1,5 +1,7 @@
 # Wombat
 
+<img src="logo/wombat_logo_green.png" width="20%"><img src="logo/wombat_logo_purple.png" width="20%">
+
 Wombat is a Crystal binding for the well-known [bat](https://github.com/sharkdp/bat) syntax highlighting library. `bat` is a `cat(1)` clone with wings, popular among developers for its syntax highlighting capabilities. With Wombat, you can utilize `bat`'s syntax highlighting functionality directly within your Crystal applications.
 
 ## About `bat`
