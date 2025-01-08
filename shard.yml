@@ -7,8 +7,4 @@ authors:
 scripts:
   postinstall: crystal run scripts/download_bat_c_static_library.cr
 
-dependencies:
-  crest:
-    github: mamantoha/crest
-
 license: MIT
