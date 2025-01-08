@@ -12,10 +12,7 @@ module Wombat
       @[Link(ldflags: "#{__DIR__}/../ext/libbat_c.a -lz -lm")]
     {% end %}
   {% elsif flag?(:windows) %}
-    @[Link("Kernel32")]
-    @[Link("Advapi32")]
-    @[Link("User32")]
-    @[Link("Gdi32")]
+    @[Link("OneCore")]
     @[Link("Shell32")]
     @[Link("ntdll")]
     @[Link("ws2_32")]
