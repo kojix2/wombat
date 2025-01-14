@@ -1,0 +1,44 @@
+name: Install Test
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  build:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ["ubuntu", "macos", "windows"]
+    steps:
+      - uses: crystal-lang/install-crystal@v1
+        with:
+          crystal: latest
+      - name: Create testapp project
+        run: |
+          crystal init app testapp
+          echo "dependencies:"             >> testapp/shard.yml
+          echo "  wombat:"                 >> testapp/shard.yml
+          echo "    github: kojix2/wombat" >> testapp/shard.yml
+          echo 'require "wombat"' > testapp/src/testapp.cr
+          echo 'puts Wombat.pretty_print(input: %{puts "Hello, World!"}, language: "Crystal")' >> testapp/src/testapp.cr
+      - name: Run tests
+        run: |
+          cd testapp
+          shards install
+          crystal build src/testapp.cr
+          ./testapp
+      - if: matrix.os == 'ubuntu'
+        run: |
+          testapp/testapp
+          ldd testapp/testapp
+      - if: matrix.os == 'macos'
+        run: |
+          testapp/testapp
+          otool -L testapp/testapp
+      - if: matrix.os == 'windows'
+        run: |
+          testapp/testapp
+          objdump -x testapp/testapp.exe
