@@ -9,6 +9,9 @@
 # Dependencies will be locked in applications that use them
 /shard.lock
 
+# Example build artifacts
+/simple
+
 *.a
 *.o
 *.so
