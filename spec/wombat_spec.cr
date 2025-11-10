@@ -43,32 +43,34 @@ describe Wombat do
 
   describe ".pretty_print_file" do
     it "prints a file without error" do
-      # Create a temporary file
-      File.write("/tmp/test_wombat.cr", %{puts "test"})
+      # Create a temporary file using tempfile
+      File.tempfile("test_wombat", ".cr") do |file|
+        file.print %{puts "test"}
+        file.flush
 
-      # Use paging_mode: 2 to avoid interactive pager
-      Wombat.pretty_print_file("/tmp/test_wombat.cr", paging_mode: 2)
-
-      # Clean up
-      File.delete("/tmp/test_wombat.cr")
+        # Use paging_mode: 2 to avoid interactive pager
+        Wombat.pretty_print_file(file.path, paging_mode: 2)
+      end
     end
 
     it "handles non-existent file" do
       # The underlying C library may handle this differently
       # For now, we just verify it doesn't crash
+      non_existent = File.join(Dir.tempdir, "nonexistent_#{Random.rand(10000)}.cr")
       begin
-        Wombat.pretty_print_file("/nonexistent/file.cr", paging_mode: 2)
+        Wombat.pretty_print_file(non_existent, paging_mode: 2)
       rescue ex : Wombat::Error
         ex.message.to_s.should contain("Failed to pretty print file")
       end
     end
 
     it "accepts Path objects" do
-      File.write("/tmp/test_wombat_path.cr", %{puts "test"})
+      File.tempfile("test_wombat_path", ".cr") do |file|
+        file.print %{puts "test"}
+        file.flush
 
-      Wombat.pretty_print_file(Path.new("/tmp/test_wombat_path.cr"), paging_mode: 2)
-
-      File.delete("/tmp/test_wombat_path.cr")
+        Wombat.pretty_print_file(Path.new(file.path), paging_mode: 2)
+      end
     end
   end
 end
