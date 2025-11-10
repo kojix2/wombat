@@ -4,6 +4,8 @@ version: 0.0.6
 authors:
   - kojix2 <2xijok@gmail.com>
 
+crystal: ">= 1.0.0"
+
 scripts:
   postinstall: crystal run scripts/download_bat_c_static_library.cr
 
