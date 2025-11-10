@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Crystal Docs 1.16.3">
+<meta name="generator" content="Crystal Docs 1.17.1">
 <meta name="crystal_docs.project_version" content="main">
 <meta name="crystal_docs.project_name" content="wombat">
 
@@ -139,6 +139,19 @@ puts highlighted</code></pre>
 <pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;wombat&quot;</span>
 
 <span class="t">Wombat</span>.pretty_print_file(<span class="s">&quot;/path/to/your_file.cr&quot;</span>)</code></pre>
+<h3><a id="error-handling" class="anchor" href="#error-handling">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Error Handling</h3>
+<p>Handle potential errors when processing files:</p>
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;wombat&quot;</span>
+
+<span class="k">begin</span>
+  <span class="t">Wombat</span>.pretty_print_file(<span class="s">&quot;/path/to/file.cr&quot;</span>)
+<span class="k">rescue</span> ex : <span class="t">Wombat</span><span class="t">::</span><span class="t">Error</span>
+  puts <span class="s">&quot;Error: </span><span class="i">#{</span>ex.message<span class="i">}</span><span class="s">&quot;</span>
+<span class="k">end</span></code></pre>
 <p>For more details, refer to the <a href="https://kojix2.github.io/wombat/">API Documentation</a>.</p>
 <h2><a id="development" class="anchor" href="#development">
   <svg class="octicon-link" aria-hidden="true">
