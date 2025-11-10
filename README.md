@@ -55,6 +55,20 @@ require "wombat"
 Wombat.pretty_print_file("/path/to/your_file.cr")
 ```
 
+### Error Handling
+
+Handle potential errors when processing files:
+
+```crystal
+require "wombat"
+
+begin
+  Wombat.pretty_print_file("/path/to/file.cr")
+rescue ex : Wombat::Error
+  puts "Error: #{ex.message}"
+end
+```
+
 For more details, refer to the [API Documentation](https://kojix2.github.io/wombat/).
 
 ## Development
