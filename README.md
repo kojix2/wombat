@@ -30,7 +30,13 @@ Wombat is a Crystal binding for the well-known [bat](https://github.com/sharkdp/
     shards install
     ```
 
-During installation, a `postinstall` script will automatically download the static library for `bat-c` into the `src/ext` directory.
+During installation, a `postinstall` script will automatically download the latest version of the `bat-c` static library into the `src/ext` directory.
+
+Version Managementß
+
+- Wombat always uses the latest release of `bat-c` from [bat-c releases](https://github.com/kojix2/bat-c/releases).
+- Check the installed version: `Wombat.bat_c_version`
+- Update to the latest version: `crystal run scripts/download_bat_c_static_library.cr`
 
 ## Usage
 
