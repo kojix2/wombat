@@ -114,7 +114,13 @@
 <pre><code class="language-sh">shards install</code></pre>
 </li>
 </ol>
-<p>During installation, a <code>postinstall</code> script will automatically download the static library for <code>bat-c</code> into the <code>src/ext</code> directory.</p>
+<p>During installation, a <code>postinstall</code> script will automatically download the latest version of the <code>bat-c</code> static library into the <code>src/ext</code> directory.</p>
+<p>Version Managementß</p>
+<ul>
+<li>Wombat always uses the latest release of <code>bat-c</code> from <a href="https://github.com/kojix2/bat-c/releases">bat-c releases</a>.</li>
+<li>Check the installed version: <code>Wombat.bat_c_version</code></li>
+<li>Update to the latest version: <code>crystal run scripts/download_bat_c_static_library.cr</code></li>
+</ul>
 <h2><a id="usage" class="anchor" href="#usage">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
