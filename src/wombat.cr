@@ -31,7 +31,7 @@ module Wombat
     result = Wombat::Bat.bat_pretty_print(
       input,
       input.size,
-      Wombat::Bat::BatInputType::BatBytes,
+      Wombat::Bat::BatInputType::BatBytes.value,
       language,
       theme,
       Wombat::Bat::BatPrintOptions.new(
@@ -77,7 +77,7 @@ module Wombat
     result = Wombat::Bat.bat_pretty_print(
       path.to_s,
       path.to_s.size,
-      Wombat::Bat::BatInputType::BatFile,
+      Wombat::Bat::BatInputType::BatFile.value,
       language,
       theme,
       Wombat::Bat::BatPrintOptions.new(
@@ -125,7 +125,7 @@ module Wombat
     result = Wombat::Bat.bat_pretty_print_to_string(
       input,
       input.size,
-      Wombat::Bat::BatInputType::BatBytes,
+      Wombat::Bat::BatInputType::BatBytes.value,
       language,
       theme,
       Wombat::Bat::BatPrintOptions.new(

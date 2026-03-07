@@ -49,8 +49,8 @@ module Wombat
       highlight_line : LibC::SizeT
     end
 
-    fun bat_pretty_print(input : Pointer(UInt8), length : LibC::SizeT, input_type : BatInputType, language : Pointer(UInt8), theme : Pointer(UInt8), options : BatPrintOptions) : Int32
-    fun bat_pretty_print_to_string(input : Pointer(UInt8), length : LibC::SizeT, input_type : BatInputType, language : Pointer(UInt8), theme : Pointer(UInt8), options : BatPrintOptions, output : Pointer(Pointer(UInt8)), output_length : Pointer(LibC::SizeT)) : Int32
+    fun bat_pretty_print(input : Pointer(UInt8), length : LibC::SizeT, input_type : Int32, language : Pointer(UInt8), theme : Pointer(UInt8), options : BatPrintOptions) : Int32
+    fun bat_pretty_print_to_string(input : Pointer(UInt8), length : LibC::SizeT, input_type : Int32, language : Pointer(UInt8), theme : Pointer(UInt8), options : BatPrintOptions, output : Pointer(Pointer(UInt8)), output_length : Pointer(LibC::SizeT)) : Int32
     fun bat_free_string(input : Pointer(UInt8)) : Nil
     fun bat_c_version : Pointer(UInt8)
   end
