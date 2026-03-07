@@ -4,6 +4,7 @@
 
 [![test](https://github.com/kojix2/wombat/actions/workflows/test.yml/badge.svg)](https://github.com/kojix2/wombat/actions/workflows/test.yml)
 [![Docs Latest](https://img.shields.io/badge/docs-latest-blue.svg)](https://kojix2.github.io/wombat/)
+[![Lines of Code](https://img.shields.io/endpoint?url=https%3A%2F%2Ftokei.kojix2.net%2Fbadge%2Fgithub%2Fkojix2%2Fwombat%2Flines)](https://tokei.kojix2.net/github/kojix2/wombat)
 
 Wombat is a Crystal binding for the well-known [bat](https://github.com/sharkdp/bat) syntax highlighting library. `bat` is a `cat(1)` clone with wings, popular among developers for its syntax highlighting capabilities. With Wombat, you can utilize `bat`'s syntax highlighting functionality directly within your Crystal applications.
 
